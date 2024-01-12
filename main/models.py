@@ -13,3 +13,7 @@ class Asset(models.Model):
         choices=CHOICES,
         default='1',
     )
+
+
+class Portfolio(models.Model):
+    name = models.CharField(max_length=20)
