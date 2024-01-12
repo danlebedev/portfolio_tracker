@@ -4,22 +4,28 @@
 Assets
 {% endblock title %}
 
+{% block header %}
+Assets
+{% endblock header %}
+
 {% block content %}
 {% if assets %}
-<table>
-    <tr>
-        <th>Symbol</th>
-        <th>Name</th>
-        <th>Type</th>
-    </tr>
-    {% for asset in assets %}
-    <tr>
-        <td>{{ asset.short_name }}</td>
-        <td>{{ asset.name }}</td>
-        <td>{{ asset.get_asset_type_display }}</td>
-    </tr>
-    {% endfor %}
-</table>
+<p>
+    <table>
+        <tr>
+            <th>Symbol</th>
+            <th>Name</th>
+            <th>Type</th>
+        </tr>
+        {% for asset in assets %}
+        <tr>
+            <td>{{ asset.short_name }}</td>
+            <td>{{ asset.name }}</td>
+            <td>{{ asset.get_asset_type_display }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</p>
 {% else %}
 <p>No any asset added...</p>
 {% endif %}
