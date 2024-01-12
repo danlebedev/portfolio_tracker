@@ -1,0 +1,21 @@
+{% extends "layout/basic.html" %}
+
+{% block title %}
+Portfolios
+{% endblock title %}
+
+{% block header %}
+Portfolios
+{% endblock header %}
+
+{% block content %}
+<ul>
+    {% for portfolio in portfolios %}
+    <li>
+        <p>{{ portfolio.name}} - {{ portfolio.date_added }}</p>
+    </li>
+    {% empty %}
+    <li>There is no portfolio added yet...</li>
+    {% endfor %}
+</ul>
+{% endblock content %}
