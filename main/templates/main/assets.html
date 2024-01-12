@@ -1,0 +1,15 @@
+{% extends 'layout/basic.html' %}
+
+{% block title %}
+Assets
+{% endblock title %}
+
+{% block content %}
+<ul>
+    {% for asset in assets %}
+    <li>{{ asset }}</li>
+    {% empty %}
+    <li>No any asset added...</li>
+    {% endfor %}
+</ul>
+{% endblock content %}
