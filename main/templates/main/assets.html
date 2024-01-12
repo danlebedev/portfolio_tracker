@@ -5,11 +5,19 @@ Assets
 {% endblock title %}
 
 {% block content %}
-<ul>
+<table>
+    <tr>
+        <th>Symbol</th>
+        <th>Name</th>
+        <th>Type</th>
+    </tr>
     {% for asset in assets %}
-    <li>{{ asset }}</li>
+    <tr>
+        <td>{{ asset.short_name }}</td>
+        <td>{{ asset.name }}</td>
+        <td>{{ asset.get_asset_type_display }}</td>
+    </tr>
     {% empty %}
-    <li>No any asset added...</li>
+    <p>No any asset added...</p>
     {% endfor %}
-</ul>
 {% endblock content %}
