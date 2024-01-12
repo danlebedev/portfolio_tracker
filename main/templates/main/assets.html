@@ -5,6 +5,7 @@ Assets
 {% endblock title %}
 
 {% block content %}
+{% if assets %}
 <table>
     <tr>
         <th>Symbol</th>
@@ -17,7 +18,9 @@ Assets
         <td>{{ asset.name }}</td>
         <td>{{ asset.get_asset_type_display }}</td>
     </tr>
-    {% empty %}
-    <p>No any asset added...</p>
     {% endfor %}
+</table>
+{% else %}
+<p>No any asset added...</p>
+{% endif %}
 {% endblock content %}
