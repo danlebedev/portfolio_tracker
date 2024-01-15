@@ -12,7 +12,9 @@ Portfolios
 <ul>
     {% for portfolio in portfolios %}
     <li>
-        <p>{{ portfolio.name}} - {{ portfolio.date_added }}</p>
+        <a href="{% url 'main:portfolio' portfolio.pk %}">
+            <p>{{ portfolio.name}} - {{ portfolio.date_added }}</p>
+        </a>
     </li>
     {% empty %}
     <li>There is no portfolio added yet...</li>

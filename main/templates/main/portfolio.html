@@ -11,7 +11,9 @@ Portfolio
 {% block content %}
 <ul>
     {% for user_asset in user_assets %}
-    <li>{{ user_asset.asset.short_name }} - {{ user_asset.balance }}</li>
+    <li>
+        <p>{{ user_asset.asset.short_name }} - {{ user_asset.balance }}</p>
+    </li>
     {% empty %}
     <li>There is no user_asset added yet...</li>
     {% endfor %}
