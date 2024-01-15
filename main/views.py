@@ -1,4 +1,7 @@
 from django.shortcuts import render
+from django.views.generic.edit import CreateView
+from django.urls import reverse_lazy
+
 from .models import Asset, Portfolio
 
 
@@ -30,3 +33,10 @@ def portfolio(request, portfolio_id):
         'user_assets': user_assets,
     }
     return render(request, 'main/portfolio.html', context)
+
+
+class PortfolioCreateView(CreateView):
+    template_name = 'main/portfolio_add.html'
+    model = Portfolio
+    success_url = reverse_lazy('main:portfolios')
+    fields = ('name',)

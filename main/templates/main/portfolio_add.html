@@ -1,0 +1,17 @@
+{% extends "layout/basic.html" %}
+
+{% block title %}
+Portfolio
+{% endblock title %}
+
+{% block header %}
+{{ portfolio.name }}
+{% endblock header %}
+
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Add">
+</form>
+{% endblock content %}
