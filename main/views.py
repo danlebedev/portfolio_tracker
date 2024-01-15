@@ -20,3 +20,13 @@ def portfolios(request):
         'portfolios': portfolios,
     }
     return render(request, 'main/portfolios.html', context)
+
+
+def portfolio(request, portfolio_id):
+    portfolio = Portfolio.objects.get(pk=portfolio_id)
+    user_assets = portfolio.userasset_set.order_by('balance')
+    context = {
+        'portfolio': portfolio,
+        'user_assets': user_assets,
+    }
+    return render(request, 'main/portfolio.html', context)
