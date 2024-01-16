@@ -5,10 +5,14 @@ Portfolio
 {% endblock title %}
 
 {% block header %}
-{{ portfolio.name }}
+Details
 {% endblock header %}
 
 {% block content %}
+<h2>
+    <a href="{% url 'main:portfolio_delete' portfolio.pk %}">Delete portfolio</a>
+</h2>
+<p>Name: {{ portfolio.name }}</p>
 <ul>
     {% for user_asset in user_assets %}
     <li>
