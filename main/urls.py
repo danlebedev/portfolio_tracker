@@ -27,4 +27,9 @@ urlpatterns = [
         views.PortfolioUpdateView.as_view(),
         name='portfolio_update',
     ),
+    path(
+        'userassets/create/',
+        views.UserAssetCreateView.as_view(),
+        name='userasset_create'
+    )
 ]

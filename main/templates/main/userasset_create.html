@@ -1,0 +1,17 @@
+{% extends "layout/basic.html" %}
+
+{% block title %}
+Create userasset
+{% endblock title %}
+
+{% block header %}
+Create userasset
+{% endblock header %}
+
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Create">
+</form>
+{% endblock content %}

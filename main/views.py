@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.urls import reverse_lazy
 
-from .models import Asset, Portfolio
+from .models import Asset, Portfolio, UserAsset
 
 
 def index(request):
@@ -62,3 +62,10 @@ class PortfolioUpdateView(UpdateView):
         context = super().get_context_data(*args, **kwargs)
         context['portfolios'] = Portfolio.objects.all()
         return context
+
+
+class UserAssetCreateView(CreateView):
+    model = UserAsset
+    success_url = reverse_lazy('main:index')    #TODO: изменить адрес на портфолио.
+    template_name_suffix = '_create'
+    fields = ('portfolio', 'asset', 'balance',)
