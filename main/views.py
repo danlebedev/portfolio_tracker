@@ -25,8 +25,8 @@ def portfolios(request):
     return render(request, 'main/portfolios.html', context)
 
 
-def portfolio(request, portfolio_id):
-    portfolio = Portfolio.objects.get(pk=portfolio_id)
+def portfolio(request, pk):
+    portfolio = Portfolio.objects.get(pk=pk)
     user_assets = portfolio.userasset_set.order_by('balance')
     context = {
         'portfolio': portfolio,

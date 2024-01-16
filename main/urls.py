@@ -14,7 +14,7 @@ urlpatterns = [
         views.PortfolioCreateView.as_view(),
         name='portfolio_add'
     ),
-    path('portfolios/<int:portfolio_id>/', views.portfolio, name='portfolio'),
+    path('portfolios/<int:pk>/', views.portfolio, name='portfolio'),
     path(
         'portfolios/<int:pk>/portfolio_delete/',
         views.PortfolioDeleteView.as_view(),
