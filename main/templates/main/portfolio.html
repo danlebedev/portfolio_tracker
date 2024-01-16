@@ -5,7 +5,7 @@ Portfolio
 {% endblock title %}
 
 {% block header %}
-Details
+Portfolio
 {% endblock header %}
 
 {% block content %}
@@ -19,7 +19,7 @@ Details
         <p>{{ user_asset.asset.short_name }} - {{ user_asset.balance }}</p>
     </li>
     {% empty %}
-    <li>There is no user_asset added yet...</li>
+    <li>There is no asset added yet...</li>
     {% endfor %}
 </ul>
 {% endblock content %}
