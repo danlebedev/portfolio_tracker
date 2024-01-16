@@ -1,17 +1,17 @@
 {% extends "layout/basic.html" %}
 
 {% block title %}
-Portfolio add
+Portfolio delete
 {% endblock title %}
 
 {% block header %}
-Adding a new portfolio
+Deleting portfolio
 {% endblock header %}
 
 {% block content %}
+<p>Name: {{ portfolio.name }}</p>
 <form method="post">
     {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Add">
+    <input type="submit" value="Delete">
 </form>
 {% endblock content %}
