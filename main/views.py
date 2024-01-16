@@ -36,9 +36,9 @@ def portfolio(request, pk):
 
 
 class PortfolioCreateView(CreateView):
-    template_name = 'main/portfolio_add.html'
     model = Portfolio
     success_url = reverse_lazy('main:portfolios')
+    template_name_suffix = '_create'
     fields = ('name',)
 
 

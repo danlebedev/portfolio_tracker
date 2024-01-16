@@ -10,9 +10,9 @@ urlpatterns = [
     path('assets/', views.assets, name='assets'),
     path('portfolios/', views.portfolios, name='portfolios'),
     path(
-        'portfolios/add/',
+        'portfolios/create/',
         views.PortfolioCreateView.as_view(),
-        name='portfolio_add'
+        name='portfolio_create'
     ),
     path('portfolios/<int:pk>/', views.portfolio, name='portfolio'),
     path(
