@@ -14,6 +14,7 @@ Portfolio
     <a href="{% url 'main:portfolio_update' portfolio.pk %}">Update portfolio</a>
 </h2>
 <p>Name: {{ portfolio.name }}</p>
+<a href="{% url 'main:userasset_create' %}">Create userasset</a>
 <ul>
     {% for user_asset in user_assets %}
     <li>
