@@ -16,7 +16,7 @@ urlpatterns = [
     ),
     path('portfolios/<int:pk>/', views.portfolio, name='portfolio'),
     path(
-        'portfolios/<int:pk>/portfolio_delete/',
+        'portfolios/<int:pk>/delete/',
         views.PortfolioDeleteView.as_view(),
         name='portfolio_delete'
     ),
