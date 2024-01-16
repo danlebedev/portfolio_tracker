@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic.edit import CreateView, DeleteView
+from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.urls import reverse_lazy
 
 from .models import Asset, Portfolio
@@ -45,6 +45,18 @@ class PortfolioCreateView(CreateView):
 class PortfolioDeleteView(DeleteView):
     model = Portfolio
     success_url = reverse_lazy('main:portfolios')
+
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+        context['portfolios'] = Portfolio.objects.all()
+        return context
+
+
+class PortfolioUpdateView(UpdateView):
+    model = Portfolio
+    success_url = reverse_lazy('main:portfolios')
+    template_name_suffix = '_update'
+    fields = ('name',)
 
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)

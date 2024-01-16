@@ -20,4 +20,9 @@ urlpatterns = [
         views.PortfolioDeleteView.as_view(),
         name='portfolio_delete'
     ),
+    path(
+        'portfolios/<int:pk>/update/',
+        views.PortfolioUpdateView.as_view(),
+        name='portfolio_update',
+    )
 ]
