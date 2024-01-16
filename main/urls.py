@@ -7,7 +7,9 @@ app_name = 'main'
 urlpatterns = [
     # Homepage.
     path('', views.index, name='index'),
+    # Assets.
     path('assets/', views.assets, name='assets'),
+    # Portfolios.
     path('portfolios/', views.portfolios, name='portfolios'),
     path(
         'portfolios/create/',
@@ -24,5 +26,5 @@ urlpatterns = [
         'portfolios/<int:pk>/update/',
         views.PortfolioUpdateView.as_view(),
         name='portfolio_update',
-    )
+    ),
 ]
