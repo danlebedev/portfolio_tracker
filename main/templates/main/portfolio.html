@@ -10,7 +10,8 @@ Portfolio
 
 {% block content %}
 <h2>
-    <a href="{% url 'main:portfolio_delete' portfolio.pk %}">Delete portfolio</a>
+    <a href="{% url 'main:portfolio_delete' portfolio.pk %}">Delete portfolio</a> - 
+    <a href="{% url 'main:portfolio_update' portfolio.pk %}">Update portfolio</a>
 </h2>
 <p>Name: {{ portfolio.name }}</p>
 <ul>
