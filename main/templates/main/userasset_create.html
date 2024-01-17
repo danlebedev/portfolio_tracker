@@ -9,6 +9,7 @@ Create userasset
 {% endblock header %}
 
 {% block content %}
+<p>Portfolio: {{ portfolio_pk.name }}</p>
 <form method="post">
     {% csrf_token %}
     {{ form.as_p }}

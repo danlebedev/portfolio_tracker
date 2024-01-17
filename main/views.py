@@ -68,4 +68,15 @@ class UserAssetCreateView(CreateView):
     model = UserAsset
     success_url = reverse_lazy('main:index')    #TODO: изменить адрес на портфолио.
     template_name_suffix = '_create'
-    fields = ('portfolio', 'asset', 'balance',)
+    fields = ('asset', 'balance',)
+
+    def get_initial(self):
+        portfolio = Portfolio.objects.get(pk=self.kwargs['portfolio_pk'])
+        initial = super().get_initial()
+        initial['portfolio'] = portfolio
+        return initial
+    
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+        context['portfolio_pk'] = Portfolio.objects.get(pk=self.kwargs['portfolio_pk'])
+        return context
