@@ -22,5 +22,5 @@ class Portfolio(models.Model):
 
 class UserAsset(models.Model):
     portfolio = models.ForeignKey(Portfolio, on_delete=models.CASCADE)
-    asset = models.OneToOneField(Asset, on_delete=models.PROTECT)
+    asset = models.ForeignKey(Asset, on_delete=models.PROTECT)
     balance = models.DecimalField(max_digits=24, decimal_places=12)
