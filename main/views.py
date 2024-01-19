@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, HttpResponseRedirect
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.urls import reverse_lazy
 
@@ -70,13 +70,8 @@ class UserAssetCreateView(CreateView):
     template_name_suffix = '_create'
     fields = ('asset', 'balance',)
 
-    def get_initial(self):
-        portfolio = Portfolio.objects.get(pk=self.kwargs['portfolio_pk'])
-        initial = super().get_initial()
-        initial['portfolio'] = portfolio
-        return initial
-    
-    def get_context_data(self, *args, **kwargs):
-        context = super().get_context_data(*args, **kwargs)
-        context['portfolio_pk'] = Portfolio.objects.get(pk=self.kwargs['portfolio_pk'])
-        return context
+    def form_valid(self, form):
+        self.object = form.save(commit=False)
+        self.object.portfolio = Portfolio.objects.get(pk=self.kwargs['portfolio_pk'])
+        self.object.save()
+        return super().form_valid(form)
