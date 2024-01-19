@@ -24,3 +24,6 @@ class UserAsset(models.Model):
     portfolio = models.ForeignKey(Portfolio, on_delete=models.CASCADE)
     asset = models.ForeignKey(Asset, on_delete=models.PROTECT)
     balance = models.DecimalField(max_digits=24, decimal_places=12)
+
+    class Meta:
+        unique_together = ('portfolio', 'asset')
