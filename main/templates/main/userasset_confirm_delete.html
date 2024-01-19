@@ -1,0 +1,17 @@
+{% extends "layout/basic.html" %}
+
+{% block title %}
+Delete portfolio
+{% endblock title %}
+
+{% block header %}
+Delete portfolio
+{% endblock header %}
+
+{% block content %}
+<p>Name: {{ userasset.asset.short_name }}</p>
+<form method="post">
+    {% csrf_token %}
+    <input type="submit" value="Delete">
+</form>
+{% endblock content %}

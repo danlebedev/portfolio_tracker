@@ -79,3 +79,15 @@ class UserAssetCreateView(CreateView):
         return reverse_lazy('main:portfolio', kwargs={'pk': self.kwargs['portfolio_pk']})
 
     # TODO: написать отлавливаение IntegrityError при создании актива, который уже есть.
+
+
+class UserAssetDeleteView(DeleteView):
+    model = UserAsset
+    
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+        context['userassets'] = UserAsset.objects.all()
+        return context
+    
+    def get_success_url(self):
+        return reverse_lazy('main:portfolio', kwargs={'pk': self.kwargs['portfolio_pk']})
