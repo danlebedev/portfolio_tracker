@@ -18,7 +18,11 @@ Portfolio
 <ul>
     {% for user_asset in user_assets %}
     <li>
-        <p>{{ user_asset.asset.short_name }} - {{ user_asset.balance }}</p>
+        <p>
+            {{ user_asset.asset.short_name }} -
+            {{ user_asset.balance }} -
+            <a href="{% url 'main:userasset_delete' portfolio.pk user_asset.pk %}">Delete</a>
+        </p>
     </li>
     {% empty %}
     <li>There is no asset added yet...</li>
