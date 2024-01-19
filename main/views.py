@@ -66,7 +66,6 @@ class PortfolioUpdateView(UpdateView):
 
 class UserAssetCreateView(CreateView):
     model = UserAsset
-    success_url = reverse_lazy('main:index')    #TODO: изменить адрес на портфолио.
     template_name_suffix = '_create'
     fields = ('asset', 'balance',)
 
@@ -74,4 +73,7 @@ class UserAssetCreateView(CreateView):
         self.object = form.save(commit=False)
         self.object.portfolio = Portfolio.objects.get(pk=self.kwargs['portfolio_pk'])
         self.object.save()
-        return super().form_valid(form)
+        return HttpResponseRedirect(self.get_success_url())
+    
+    def get_success_url(self):
+        return reverse_lazy('main:portfolio', kwargs={'pk': self.kwargs['portfolio_pk']})
