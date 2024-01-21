@@ -91,3 +91,18 @@ class UserAssetDeleteView(DeleteView):
     
     def get_success_url(self):
         return reverse_lazy('main:portfolio', kwargs={'pk': self.kwargs['portfolio_pk']})
+
+
+class UserAssetUpdateView(UpdateView):
+    model = UserAsset
+    template_name_suffix = '_update'
+    fields = ('asset', 'balance',)
+
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+        context['userassets'] = UserAsset.objects.all()
+        return context
+    
+    def get_success_url(self):
+        return reverse_lazy('main:portfolio', kwargs={'pk': self.kwargs['portfolio_pk']})
+    
