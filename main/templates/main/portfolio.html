@@ -21,6 +21,7 @@ Portfolio
         <p>
             {{ user_asset.asset.short_name }} -
             {{ user_asset.balance }} -
+            <a href="{% url 'main:userasset_update' portfolio.pk user_asset.pk %}">Update</a> -
             <a href="{% url 'main:userasset_delete' portfolio.pk user_asset.pk %}">Delete</a>
         </p>
     </li>
