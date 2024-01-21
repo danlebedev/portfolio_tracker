@@ -39,7 +39,7 @@ urlpatterns = [
         name='userasset_delete'
     ),
     path(
-        '<int:portfolio_pk>/userassets/<int:pk>/delete/',
+        '<int:portfolio_pk>/userassets/<int:pk>/update/',
         views.UserAssetUpdateView.as_view(),
         name='userasset_update'
     ),
