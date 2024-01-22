@@ -17,6 +17,13 @@ def assets(request):
     return render(request, 'main/assets.html', context)
 
 
+class AssetCreateView(CreateView):
+    model = Asset
+    success_url = 'main:assets'
+    template_name_suffix = '_create'
+    fields = ('name', 'short_name', 'asset_type')
+
+
 def portfolios(request):
     portfolios = Portfolio.objects.order_by('-date_added')
     context = {

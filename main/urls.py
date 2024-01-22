@@ -9,6 +9,11 @@ urlpatterns = [
     path('', views.index, name='index'),
     # Assets.
     path('assets/', views.assets, name='assets'),
+    path(
+        'assets/create/',
+        views.AssetCreateView.as_view(),
+        name='asset_create',
+    ),
     # Portfolios.
     path('portfolios/', views.portfolios, name='portfolios'),
     path(
