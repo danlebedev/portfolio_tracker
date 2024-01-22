@@ -1,17 +1,6 @@
-{% extends "layout/basic.html" %}
-
-{% block title %}
-Delete portfolio
-{% endblock title %}
-
-{% block header %}
-Delete portfolio
-{% endblock header %}
+{% extends "layout/delete.html" %}
 
 {% block content %}
 <p>Name: {{ portfolio.name }}</p>
-<form method="post">
-    {% csrf_token %}
-    <input type="submit" value="Delete">
-</form>
+{{ block.super }}
 {% endblock content %}

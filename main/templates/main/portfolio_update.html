@@ -1,18 +1,6 @@
-{% extends "layout/basic.html" %}
-
-{% block title %}
-Update portfolio
-{% endblock title %}
-
-{% block header %}
-Update portfolio
-{% endblock header %}
+{% extends "layout/update.html" %}
 
 {% block content %}
 <p>Name: {{ portfolio.name }}</p>
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Update">
-</form>
+{{ block.super }}
 {% endblock content %}

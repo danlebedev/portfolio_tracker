@@ -1,17 +1,6 @@
-{% extends "layout/basic.html" %}
-
-{% block title %}
-Delete userasset
-{% endblock title %}
-
-{% block header %}
-Delete userasset
-{% endblock header %}
+{% extends "layout/delete.html" %}
 
 {% block content %}
 <p>Name: {{ userasset.asset.short_name }}</p>
-<form method="post">
-    {% csrf_token %}
-    <input type="submit" value="Delete">
-</form>
+{{ block.super }}
 {% endblock content %}

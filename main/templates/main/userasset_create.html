@@ -1,18 +1,6 @@
-{% extends "layout/basic.html" %}
-
-{% block title %}
-Create userasset
-{% endblock title %}
-
-{% block header %}
-Create userasset
-{% endblock header %}
+{% extends "layout/create.html" %}
 
 {% block content %}
 <p>Portfolio: {{ portfolio_pk.name }}</p>
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Create">
-</form>
+{{ block.super }}
 {% endblock content %}
