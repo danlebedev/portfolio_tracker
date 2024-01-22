@@ -19,7 +19,7 @@ def assets(request):
 
 class AssetCreateView(CreateView):
     model = Asset
-    success_url = 'main:assets'
+    success_url = reverse_lazy('main:assets')
     template_name_suffix = '_create'
     fields = ('name', 'short_name', 'asset_type')
 
