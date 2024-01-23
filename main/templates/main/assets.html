@@ -25,6 +25,7 @@ Assets
                 <td>{{ asset.short_name }}</td>
                 <td>{{ asset.name }}</td>
                 <td>{{ asset.get_asset_type_display }}</td>
+                <td><a href="{% url 'main:asset_update' asset.pk %}">Update</a></td>
                 <td><a href="{% url 'main:asset_delete' asset.pk %}">Delete</a></td>
             </tr>
             {% endfor %}
