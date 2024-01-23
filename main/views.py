@@ -34,6 +34,18 @@ class AssetDeleteView(DeleteView):
         return context
 
 
+class AssetUpdateView(UpdateView):
+    model = Asset
+    success_url = reverse_lazy('main:assets')
+    template_name_suffix = '_update'
+    fields = ('name', 'short_name', 'asset_type')
+
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+        context['assets'] = Asset.objects.all()
+        return context
+
+
 def portfolios(request):
     portfolios = Portfolio.objects.order_by('-date_added')
     context = {
