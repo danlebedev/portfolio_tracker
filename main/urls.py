@@ -15,7 +15,7 @@ urlpatterns = [
         name='asset_create',
     ),
     path(
-        'assets/<int:pk>/delete',
+        'assets/<int:pk>/delete/',
         views.AssetDeleteView.as_view(),
         name='asset_delete',
     ),
