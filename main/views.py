@@ -100,10 +100,16 @@ class UserAssetCreateView(CreateView):
 
     def form_valid(self, form):
         self.object = form.save(commit=False)
-        self.object.portfolio = Portfolio.objects.get(pk=self.kwargs['portfolio_pk'])
+        self.object.portfolio_id = self.kwargs['portfolio_pk']
         self.object.save()
         return HttpResponseRedirect(self.get_success_url())
-    
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        portfolio = Portfolio.objects.get(pk=self.kwargs['portfolio_pk'])
+        context['portfolio'] = portfolio
+        return context
+
     def get_success_url(self):
         return reverse_lazy('main:portfolio', kwargs={'pk': self.kwargs['portfolio_pk']})
 
